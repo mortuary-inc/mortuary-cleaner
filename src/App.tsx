@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { AppProvider } from './hooks/useAppContext';
 import Cleaner from './pages/Cleaner';
+import { Toaster } from 'react-hot-toast';
 
 export const App: FC = () => {
   return (
@@ -35,6 +36,8 @@ const AppInner: FC = () => {
       network = WalletAdapterNetwork.Mainnet;
       if (cluster != "mainnet-beta") {
         endpoint = cluster;
+      } else {
+        endpoint = "https://api.metaplex.solana.com/";
       }
     }
     return { network, endpoint }
@@ -67,6 +70,7 @@ const AppInner: FC = () => {
               </Routes>
             </Layout>
           </WalletModalProvider>
+          <Toaster position="bottom-left" reverseOrder={false} />
         </WalletProvider>
       </ConnectionProvider>
     </AppProvider>

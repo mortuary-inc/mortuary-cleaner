@@ -152,12 +152,12 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('error ' + i, err);
-        toast.custom(<Notification message={'Sorry. Error: ' + err} variant="error" />);
+        toast.custom(<Notification message={err} variant="error" />);
 
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={'Sorry. Error: ' + error} variant="error" />);
+      toast.custom(<Notification message={error} variant="error" />);
     });
 
     let copy = [...tokensSelected];
@@ -202,11 +202,11 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('Burn error ' + i, err);
-        toast.custom(<Notification message={'Sorry. Error: ' + err} variant="error" />);
+        toast.custom(<Notification message={err} variant="error" />);
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={'Sorry. Error: ' + error} variant="error" />);
+      toast.custom(<Notification message={error} variant="error" />);
     });
 
     let copy = [...tokensSelected];
@@ -244,19 +244,15 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('Close error ' + i, err);
-        toast.custom(<Notification message={'Sorry. Error: ' + err} variant="error" />);
+        toast.custom(<Notification message={err} variant="error" />);
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={'Sorry. Error: ' + error} variant="error" />);
+      toast.custom(<Notification message={error} variant="error" />);
     });
     let copy = [...tokensSelected];
     for (let i = 0; i < copy.length; i++) copy[i] = false;
     setTokensSelected(copy);
-    /* Problem the TX is not confirmed yet so the tokensUpdated stay the same 
-    let tokensUpdated = await loadOwnedTokens(wallet.publicKey);
-    console.log(tokensUpdated)
-    setTokensInfos(tokensUpdated); */
   };
 
 
