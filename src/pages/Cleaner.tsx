@@ -10,6 +10,7 @@ import { ChevronDownIcon, ExclamationCircleIcon, FireIcon, XCircleIcon, PaperAir
 import { PublicKey } from '@solana/web3.js'
 import InfoBtnSVG from '../assets/info_btn.svg';
 import * as web3 from "@solana/web3.js";
+import { getErrMessage } from '../utils/errors';
 
 const Cleaner = () => {
   const { publicKey } = useWallet();
@@ -152,12 +153,12 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('error ' + i, err);
-        toast.custom(<Notification message={err} variant="error" />);
+        toast.custom(<Notification message={getErrMessage(err)} variant="error" />);
 
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={error} variant="error" />);
+      toast.custom(<Notification message={getErrMessage(error)} variant="error" />);
     });
 
     let copy = [...tokensSelected];
@@ -202,11 +203,11 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('Burn error ' + i, err);
-        toast.custom(<Notification message={err} variant="error" />);
+        toast.custom(<Notification message={getErrMessage(err)} variant="error" />);
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={error} variant="error" />);
+      toast.custom(<Notification message={getErrMessage(error)} variant="error" />);
     });
 
     let copy = [...tokensSelected];
@@ -244,11 +245,11 @@ const Cleaner = () => {
       },
       (i, err) => {
         console.log('Close error ' + i, err);
-        toast.custom(<Notification message={err} variant="error" />);
+        toast.custom(<Notification message={getErrMessage(err)} variant="error" />);
       }
     ).catch((error) => {
       console.log(error);
-      toast.custom(<Notification message={error} variant="error" />);
+      toast.custom(<Notification message={getErrMessage(error)} variant="error" />);
     });
     let copy = [...tokensSelected];
     for (let i = 0; i < copy.length; i++) copy[i] = false;
