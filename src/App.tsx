@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes, useSearchParams } from 'react-router-dom'
 import Layout from './components/Layout';
 import { HomePage } from './pages/HomePage';
 import { AppProvider } from './hooks/useAppContext';
+import Cleaner from './pages/Cleaner';
 
 export const App: FC = () => {
   return (
@@ -62,7 +63,7 @@ const AppInner: FC = () => {
           <WalletModalProvider>
             <Layout>
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<Cleaner />} />
               </Routes>
             </Layout>
           </WalletModalProvider>
